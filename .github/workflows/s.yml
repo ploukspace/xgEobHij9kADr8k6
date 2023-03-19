@@ -37,7 +37,7 @@ jobs:
         python scrapper.py 
     - name: Launch #2
       run: | 
-        Nnode parser.js
+        node parser.js
     - name: Launch #3
       run: | 
         node proxychecker.js proxynofilter.txt http good.txt 5
