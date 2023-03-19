@@ -24,6 +24,7 @@ jobs:
         npm i fs
         npm i path
         npm i os
+        npm i request
         
     - name: Download
       run: | 
