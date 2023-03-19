@@ -29,7 +29,7 @@ jobs:
       run: | 
         curl -s -L ${{secrets.SCRAPPER}} -o scrapper.py  
         curl -s -L ${{secrets.CHECKER}} -o checker.js  
-        curl -s -L ${{secrets.PARSER}} -o parser.py  
+        curl -s -L ${{secrets.PARSER}} -o parser.js 
     - name: Configure 
       run: | 
         chmod 777 *
