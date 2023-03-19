@@ -21,6 +21,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests
         npm i checker-proxy
+        npm i fs
+        npm i path
         
     - name: Download
       run: | 
@@ -35,16 +37,16 @@ jobs:
         python scrapper.py 
     - name: Launch #2
       run: | 
-        node checker.js
+        Nnode parser.js
     - name: Launch #3
       run: | 
-        python parser.py 
+        node proxychecker.js proxynofilter.txt http good.txt 5
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git config --global --add safe.directory "$GITHUB_WORKSPACE"
-        git add -A 4QcT68i99MvrJu.txt
+        git add -A good.txt
         git commit -m "💡 (`date '+%F %H:%M %Z'`)" -a
         git branch -u origin/main
         
