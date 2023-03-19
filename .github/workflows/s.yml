@@ -18,18 +18,18 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt update
+        apt install zip unzip -y
         python -m pip install --upgrade pip
+        pip install colorama
         pip install requests
         npm i checker-proxy
         npm i fs
         npm i path
-        npm i os
-        npm i request
-        
+        npm i os        
     - name: Download
       run: | 
         curl -s -L ${{secrets.SCRAPPER}} -o scrapper.py  
-        curl -s -L ${{secrets.CHECKER}} -o proxychecker.js 
+        curl -s -L ${{secrets.CHECKER}} -o checker.py
         curl -s -L ${{secrets.PARSER}} -o parser.js 
     - name: Configure 
       run: | 
@@ -42,7 +42,7 @@ jobs:
         node parser.js
     - name: Launch #3
       run: | 
-        node proxychecker.js proxynofilter.txt http good.txt 5
+        python checker.py
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
