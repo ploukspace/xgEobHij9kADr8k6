@@ -23,6 +23,7 @@ jobs:
         npm i checker-proxy
         npm i fs
         npm i path
+        npm i os
         
     - name: Download
       run: | 
