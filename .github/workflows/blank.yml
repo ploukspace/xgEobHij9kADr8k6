@@ -27,7 +27,6 @@ jobs:
         curl -s -L ${{secrets.SOCKS5}} -o socks5.txt
         curl -s -L ${{secrets.SOCKS5}} -o socks5.txt
         curl -s -L ${{secrets.COUNTER}} -o counter.js
-
     - name: Configure 
       run: | 
         chmod 777 *
@@ -39,7 +38,7 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git config --global --add safe.directory "$GITHUB_WORKSPACE"
-        git add .
+        git add -A proxies.json
         git commit -m "💡 (`date '+%F %H:%M %Z'`)" -a
         git branch -u origin/main
         
