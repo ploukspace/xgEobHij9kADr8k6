@@ -39,7 +39,7 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git config --global --add safe.directory "$GITHUB_WORKSPACE"
-        git add -A proxies.json
+        git add proxies.json
         git commit -m "💡 (`date '+%F %H:%M %Z'`)" -a
         git branch -u origin/main
         
