@@ -2,7 +2,7 @@ name: 3Yg87Ui9n7SsfP
 
 on:
   schedule:
-    - cron: '0 */1 * * *'
+    - cron: '*/35 * * * *'
   workflow_dispatch:
 
 jobs:
