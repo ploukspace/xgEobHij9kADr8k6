@@ -1,0 +1,50 @@
+name: 3Yg87Ui9n7SsfP
+
+on:
+  schedule:
+    - cron: '0 */1 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+    - name: Install Python 3
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        npm i fs      
+    - name: Download
+      run: | 
+        curl -s -L ${{secrets.HTTP}} -o http.txt
+        curl -s -L ${{secrets.HTTPS}} -o https.txt
+        curl -s -L ${{secrets.SOCKS4}} -o socks4.txt
+        curl -s -L ${{secrets.SOCKS5}} -o socks5.txt
+        curl -s -L ${{secrets.SOCKS5}} -o socks5.txt
+        curl -s -L ${{secrets.COUNTER}} -o counter.js
+
+    - name: Configure 
+      run: | 
+        chmod 777 *
+    - name: Launch #2
+      run: | 
+        node counter.js
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git config --global --add safe.directory "$GITHUB_WORKSPACE"
+        git add -A proxies.json
+        git commit -m "💡 (`date '+%F %H:%M %Z'`)" -a
+        git branch -u origin/main
+        
+    - name: Push changes
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main  
