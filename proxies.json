@@ -3,12 +3,12 @@
     "lines": 1301
   },
   "https.txt": {
-    "lines": 589
+    "lines": 706
   },
   "socks4.txt": {
-    "lines": 1099
+    "lines": 1178
   },
   "socks5.txt": {
-    "lines": 210
+    "lines": 256
   }
 }
