@@ -1,14 +1,14 @@
 {
   "http.txt": {
-    "lines": 1215
+    "lines": 7093
   },
   "https.txt": {
-    "lines": 777
+    "lines": 675
   },
   "socks4.txt": {
-    "lines": 1269
+    "lines": 1330
   },
   "socks5.txt": {
-    "lines": 242
+    "lines": 273
   }
 }
